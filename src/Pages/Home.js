@@ -1,40 +1,50 @@
 import React from "react";
-import MaterialTable from "material-table";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div>
-      <MaterialTable
-        title="Simple Action Preview"
-        columns={[
-          { title: "Name", field: "name" },
-          { title: "Surname", field: "surname" },
-          { title: "Birth Year", field: "birthYear", type: "numeric" },
-          {
-            title: "Birth Place",
-            field: "birthCity",
-            lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
-          },
-        ]}
-        data={[
-          { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
-          {
-            name: "Zerya Betül",
-            surname: "Baran",
-            birthYear: 2017,
-            birthCity: 34,
-          },
-        ]}
-        actions={[
-          {
-            icon: "save",
-            tooltip: "Save User",
-            onClick: (event, rowData) => alert("You saved " + rowData.name),
-          },
-        ]}
-      />
-    </div>
+    <MainContainer>
+      <div>
+        <h3>Welcome to the BEST craft beer online store. </h3>
+        <p>
+          Pick your selection of craft beer <br />
+          from hundreds of different craft beers
+        </p>
+        <DiscoverBtn>
+          <Link to="/beerlist">Discover</Link>
+        </DiscoverBtn>
+      </div>
+    </MainContainer>
   );
 };
 
 export default Home;
+
+const MainContainer = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1585620384249-5cf9442c87f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=963&q=80");
+  background-size: cover;
+  color: #ffffff;
+  height: 100vh;
+
+  h3 {
+    font-size: 30px;
+  }
+`;
+
+const DiscoverBtn = styled.button`
+  color: #ffffff;
+  background-color: #fbc202;
+  padding: 10px;
+  border: none;
+  border-radius: 10%;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+`;
