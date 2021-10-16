@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Pages/Home";
-import BeerList from "./Pages/BeerList";
+import BeerList from "./Pages/BeerList/BeerListPage";
 
 // import ReactGA from "react-ga";
 

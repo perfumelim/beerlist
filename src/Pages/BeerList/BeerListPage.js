@@ -1,9 +1,10 @@
 import React from "react";
+import BeerTable from "./Component/BeerTable";
 
 function BeerList() {
   return (
     <div>
-      <h1>BeerList</h1>
+      <BeerTable />
     </div>
   );
 }
