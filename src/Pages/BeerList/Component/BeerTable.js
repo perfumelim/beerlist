@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import MaterialTable from "material-table";
 import { forwardRef } from "react";
 import { Button } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
 import AddBox from "@material-ui/icons/AddBox";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
@@ -21,9 +22,7 @@ import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 
-function BeerTable() {
-  const [beerData, setBeerData] = useState([]);
-
+function BeerTable({ data }) {
   const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -50,20 +49,11 @@ function BeerTable() {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
   };
 
-  useEffect(() => {
-    fetch(`https://api.punkapi.com/v2/beers`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setBeerData(data);
-      });
-  }, []);
-
   return (
     <div>
       <MaterialTable
         icons={tableIcons}
+        data={data}
         localization={{
           header: {
             actions: "Cart",
@@ -74,7 +64,6 @@ function BeerTable() {
           { title: "ABV", field: "abv", type: "numeric" },
           { title: "IBU", field: "ibu", type: "numeric" },
         ]}
-        data={beerData}
         actions={[
           {
             tooltip: "Add to Cart",
@@ -91,14 +80,12 @@ function BeerTable() {
         }}
         options={{
           headerStyle: {
-            backgroundColor: "#000000",
-            color: "#ffffff",
-          },
-          rowStyle: {
             backgroundColor: "#F3C705",
+            color: "#000000",
           },
           showTitle: false,
           actionsColumnIndex: -1,
+          pageSize: 7,
         }}
       />
     </div>

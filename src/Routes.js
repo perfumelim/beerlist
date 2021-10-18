@@ -1,16 +1,23 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import Home from "./Pages/Home";
 import Navbar from "./Component/Navbar";
 import BeerList from "./Pages/BeerList/BeerListPage";
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import GlobalStyles from "./Styles/GlobalStyles";
 
 const Routes = () => {
   return (
     <Router>
       <GlobalStyles />
       <Navbar />
+      <Route exact path="/">
+        <Redirect to="/home" />
+      </Route>
       <Switch>
         <Route path="/home" component={Home} />
         <Route path="/beerlist" component={BeerList} />
@@ -20,5 +27,3 @@ const Routes = () => {
 };
 
 export default Routes;
-
-const GlobalStyles = createGlobalStyle` ${reset}; `;
