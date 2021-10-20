@@ -26,10 +26,10 @@ const MainContainer = styled.main`
   justify-content: center;
   text-align: center;
   padding-top: 30vh;
-  background-image: url("https://images.unsplash.com/photo-1585620384249-5cf9442c87f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=963&q=80");
+  background-image: url("https://images.unsplash.com/photo-1608270586620-248524c67de9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80");
   background-size: cover;
   color: #ffffff;
-  height: 100vh;
+  height: 84vh;
 
   h3 {
     font-size: 30px;
